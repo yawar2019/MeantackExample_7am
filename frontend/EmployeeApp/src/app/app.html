@@ -1,0 +1,14 @@
+<div class="container">
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+
+    <tr *ngFor="let user of service.AllProducts">
+        <td>{{user._id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.price}}</td>
+    </tr>
+</table>
