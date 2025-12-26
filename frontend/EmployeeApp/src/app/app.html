@@ -4,11 +4,34 @@
         <th>Id</th>
         <th>Name</th>
         <th>Price</th>
+        <th>Actions</th>
     </tr>
 
     <tr *ngFor="let user of service.AllProducts">
         <td>{{user._id}}</td>
         <td>{{user.name}}</td>
         <td>{{user.price}}</td>
+        <td>
+            <button (click)="Delete(user._id)">Delete</button>
+            <button (click)="Edit(user._id)">Edit</button>
+        </td>
     </tr>
 </table>
+
+
+<h1>Save Product</h1>
+
+<form #userForm="ngForm">
+    <input type="hidden" name="_id" [(ngModel)]="this.service.product._id" />
+
+    <label>Name</label>
+   <input type="text" name="name" [(ngModel)]="this.service.product.name" />
+<br>
+  <label>Price</label>
+   <input type="text" name="price" [(ngModel)]="this.service.product.price" />
+   <br>
+ 
+   <input type="button" (click)="productAdd(userForm.value)" class="btn btn-success" value="Save"/>
+</form>
+
+</div>

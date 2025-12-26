@@ -30,6 +30,7 @@ return res.status(500).json({success:false,message:'Internal Server Error'});
 const createProduct=async(req,res)=>
 {
 const product=req.body;
+console.log('product data received'+JSON.stringify(product));
 if(!product.name|| !product.price)
 {
     return res.status(400).json({success:false,message:"Please fill up all Fields"})
@@ -38,6 +39,7 @@ if(!product.name|| !product.price)
 const newProduct=new Product(product);
 try{
 newProduct.save();
+console.log('product created successfully at backend');
     return res.status(201).json({success:true,data:newProduct});
 }
 catch(error)
